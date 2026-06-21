@@ -9,7 +9,14 @@ entity Books {
         digitalCopyAvailable : Boolean;
 
 }
-
+entity Author {
+    key ID        : UUID;
+        name      : String;
+        bio       : String;
+        birthDate : DateTime;
+        books     : Association to many Books
+                       on books.author = $self.name;
+}
 entity Header {
     key ID           : UUID;
         description  : String;
